@@ -1,9 +1,7 @@
 def solution(citations):
-    citations.sort(reverse=True) 
-    h_index = 0
-    for i, citation in enumerate(citations):
-        if citation >= i + 1:
-            h_index = i + 1
-        else:
-            break
-    return h_index
+    citations = sorted(citations)
+    l = len(citations)
+    for i in range(l):
+        if citations[i] >= l-i:
+            return l-i
+    return 0
